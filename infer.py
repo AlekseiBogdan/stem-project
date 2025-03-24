@@ -190,9 +190,9 @@ def separate_audio(input_path, output_dir, model_path='best_model_dynamic_instr.
         print(f"Сохранен стем: {output_path}")
 
     # Удаление временного файла, если он был создан
-    # if wav_path != input_path and os.path.exists(wav_path):
-    #     os.remove(wav_path)
-    #     print(f"Удален временный файл: {wav_path}")
+    if wav_path != input_path and os.path.exists(wav_path):
+        os.remove(wav_path)
+        print(f"Удален временный файл: {wav_path}")
 
 def main():
     # Настройка аргументов командной строки

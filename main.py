@@ -10,7 +10,6 @@ import soundfile as sf
 from tqdm import tqdm
 import gc
 
-# Класс датасета с динамическим определением инструментов
 class MoisesDataset(Dataset):
     def __init__(self, root_dir, sr=22050, duration=3, n_fft=510, hop_length=517, save_mix=False):
         self.root_dir = root_dir
@@ -22,12 +21,10 @@ class MoisesDataset(Dataset):
         self.entries = [d for d in os.listdir(root_dir) if os.path.isdir(os.path.join(root_dir, d))]
         if not self.entries:
             raise ValueError(f"В директории {root_dir} нет подпапок с записями.")
-        
-        # Динамически определяем уникальные инструменты из данных
+
         self.instruments = self._get_unique_instruments()
         print(f"Найдено {len(self.instruments)} уникальных инструментов: {self.instruments}")
 
-        # Фильтруем записи, оставляя только те, у которых есть хотя бы один ненулевой стем
         self.valid_entries = []
         for entry in self.entries:
             entry_dir = os.path.join(self.root_dir, entry)
@@ -217,7 +214,7 @@ def collate_fn(batch):
 
 # Функция обучения
 def train_model():
-    # Конфигурация
+    # Конфигурация плюс-минус под мое железо
     SR = 22050
     DURATION = 5
     N_FFT = 1022
@@ -230,7 +227,7 @@ def train_model():
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     torch.backends.cudnn.benchmark = True
 
-    # Путь к датасету (замените на свой)
+    # Путь к датасету
     dataset_path = os.path.join(os.getcwd(), 'data')
     print(f"Путь к датасету: {dataset_path}")
 
