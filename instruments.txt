@@ -1,0 +1,11 @@
+bass
+bowed_strings
+drums
+guitar
+other
+other_keys
+other_plucked
+percussion
+piano
+vocals
+wind
