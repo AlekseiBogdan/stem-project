@@ -8,6 +8,7 @@ Main goal of the project — create a neural network to automatically stem musi
 
 - Python 3.11
 - install requirements.txt ``pip install -r requirements.txt``
+- It is required to install [ffmpeg](https://ffmpeg.org/) if you do not have it installed in order to be able to infer model with your data
 
 ## Dataset
 
