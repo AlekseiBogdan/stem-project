@@ -6,7 +6,8 @@ Main goal of the project — create a neural network to automatically stem musi
 
 ## Prerequisites
 
-TBD
+- Python 3.11
+- install requirements.txt ``pip install -r requirements.txt``
 
 ## Dataset
 
@@ -16,5 +17,11 @@ MoisesDB is a comprehensive multitrack dataset for source separation beyond 4-st
 
 ## Benchmarking
 
-TBD
+To infer model use `infer.py` script via CLI
+
+Just pass `python infer.py --input PATH_TO_YOUR_AUDIO_FILE` to your terminal, results will be saved in the `output_stems` folder (it will be created if was not before)
+
+In case you want to specify output folder pass `--output` argument with path to the folder to the bash script
+
+Also, you may want to use another model (after training one more or finetuning), in that case you can pass `--model` argument with path to your model
 
